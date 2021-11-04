@@ -4,17 +4,10 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"net/http"
 	"os"
 )
 
 func Extract_urls(domain string, output string) {
-
-	r, err := http.Get(fmt.Sprintf("https://web.archive.org/cdx/search/cdx?url=%s/*&output=txt&fl=original&collapse=urlkey", domain))
-
-	if err != nil {
-		fmt.Println(err)
-	}
 
 	url_byte, _ := ioutil.ReadAll(r.Body)
 
